@@ -1,0 +1,2 @@
+public class Osoba {
+}
