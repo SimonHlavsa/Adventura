@@ -32,6 +32,16 @@ public class Hra {
         pokladny.setSousediciSektory(napoje);
 
         aktualniSektor =vstup;
+
+
+        Duchodce duchodce = new Duchodce();
+        Zamestnanec zamestnanec = new Zamestnanec();
+        Skladnik skladnik = new Skladnik();
+
+        ovoce.setOsoby(duchodce);
+        maso.setOsoby(zamestnanec);
+        sklad.setOsoby(skladnik);
+
     }
 
     public String vratUvitani(){
@@ -63,6 +73,9 @@ public class Hra {
             else if (povel.equals("konec")){
                 textKVypsani = konec(prikaz);
             }
+            else if (povel.equals("mluv")){
+                textKVypsani = mluv(prikaz);
+            }
         }
         else  {
             textKVypsani = "Nevim co tim myslis, tento prikaz neznam?";
@@ -81,7 +94,7 @@ public class Hra {
     }
 
     private String napoveda(){
-        return "Jak ses mohl ztratit v obchodě...\n" +
+        return "Jsi v obchodě a snažíš se koupit kofolu\n" +
                 "\n" +
                 "Muzes zadat tyto prikazy:\n" +
                 platnePrikazy.vratSeznamPrikazu();
@@ -100,5 +113,22 @@ public class Hra {
             aktualniSektor = sousedniSektor;
             return aktualniSektor.dlouhyPopis();
         }
+    }
+
+    private String mluv(Prikaz prikaz){
+        if (!prikaz.maDruheSlovo()){
+            return  "S kým mám mluvit? Musíš zadat nazev osoby.";
+        }
+        if (aktualniSektor.getOsoby().size() == 0){
+            return "V tomto sektoru není žádná osoba";
+        }
+        String osobaKRozhovoru = prikaz.getDruheSlovo();
+        for (Osoba osoba : aktualniSektor.getOsoby()){
+            if (osoba.getRole().equals(osobaKRozhovoru)){
+                 return osoba.getHlaska();
+            }
+        }
+        return "Požadovaná osoba nebyla nalezena";
+
     }
 }

@@ -6,10 +6,12 @@ public class SeznamPrikazu {
     private Set<String> platnePrikazy;
 
     public SeznamPrikazu(){
-        platnePrikazy = new TreeSet<String>();
+        platnePrikazy = new TreeSet<>();
         platnePrikazy.add("jdi");
         platnePrikazy.add("konec");
         platnePrikazy.add("napoveda");
+        platnePrikazy.add("mluv");
+        platnePrikazy.add("Okradni");
     }
 
     public boolean jePlatnyPrikaz(String retezec){

@@ -12,13 +12,13 @@ public class RizeniHry {
     public void hraj(){
         System.out.println(hra.vratUvitani());
         while (!hra.konecHry()){
-            String radek = preectiString();
+            String radek = prectiString();
             Prikaz prikaz = new Prikaz(radek);
             System.out.println(hra.zpracujPrikaz(prikaz));
         }
     }
 
-    private String preectiString(){
+    private String prectiString(){
         String vstupniRadek = "";
         System.out.println("> ");
         BufferedReader vstup = new BufferedReader(new InputStreamReader(System.in));
