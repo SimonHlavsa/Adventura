@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="vytvoření základu podle projektu Adventura">
-      <change afterPath="$PROJECT_DIR$/src/Vec.java" afterDir="false" />
+    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="vytvoření osob a věcí">
+      <change afterPath="$PROJECT_DIR$/src/Batoh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Regal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Duchodce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Duchodce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Osoba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RizeniHry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RizeniHry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sektor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sektor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SeznamPrikazu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeznamPrikazu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Skladnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Skladnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zamestnanec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zamestnanec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652245608668</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="vytvoření osob a věcí">
+      <created>1652480425237</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652480425237</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +110,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="vytvoření sektorů" />
     <MESSAGE value="vytvoření základu podle projektu Adventura" />
-    <option name="LAST_COMMIT_MESSAGE" value="vytvoření základu podle projektu Adventura" />
+    <MESSAGE value="vytvoření osob a věcí" />
+    <option name="LAST_COMMIT_MESSAGE" value="vytvoření osob a věcí" />
   </component>
 </project>

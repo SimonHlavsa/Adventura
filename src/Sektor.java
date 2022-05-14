@@ -8,14 +8,16 @@ public class Sektor {
     private String nazev;
     private String popis;
     private Set<Sektor> sousediciSektory;
-    private List<Vec> seznamVeci;
+
+    private Set<Regal> regaly;
+
     private List<Osoba> osoby;
 
     public Sektor(String nazev, String popis){
         this.nazev = nazev;
         this.popis = popis;
         sousediciSektory = new HashSet<>();
-        seznamVeci =new ArrayList<>();
+        regaly = new HashSet<>();
         osoby = new ArrayList<>();
     }
 
@@ -23,9 +25,10 @@ public class Sektor {
         sousediciSektory.add(sousediciSektor);
     }
 
-    public void setSeznamVeci(Vec vec) {
-        seznamVeci.add(vec);
+    public void setRegaly(Regal regal){
+        regaly.add(regal);
     }
+
 
     public void setOsoby(Osoba osoba) {
         osoby.add(osoba);
@@ -40,33 +43,17 @@ public class Sektor {
             return false;
         }
     }
-
-    public int hashCode(){
-        return nazev.hashCode();
-    }
-
-    public String getNazev(){
-        return nazev;
-    }
-
     public String dlouhyPopis() {
-        popis = "Jsi v mistnosti/prostoru " + popis + ".\n"
+        String dlouhyPopis;
+        dlouhyPopis = "Jsi v sektoru " + popis + ".\n"
                 + seznamSousedicichSektoru();
-        if  (!seznamVeci.isEmpty()){
-            popis += "\nVeci: " + seznamVeci();
+        if  (!regaly.isEmpty()){
+            dlouhyPopis += "\nRegaly:" + seznamRegalu();
         }
         if (!osoby.isEmpty()){
-            popis += "\nOsoby: " + seznamOsob();
+            dlouhyPopis += "\nOsoby:" + seznamOsob();
         }
-        return popis;
-    }
-
-    private String seznamSousedicichSektoru(){
-        String vychodyText = "Sousedici sektory:";
-        for (Sektor sousediciSektor : sousediciSektory){
-            vychodyText += " " + sousediciSektor.getNazev();
-        }
-        return vychodyText;
+        return dlouhyPopis;
     }
 
     public Sektor sousedniSektor(String  jmenoSousedni){
@@ -81,39 +68,27 @@ public class Sektor {
         return null;
     }
 
-    public void vlozVec(Vec neco) {
-        seznamVeci.add(neco);
-    }
-    public boolean obsahujeVec(String nazevVeci) {
-        for ( Vec neco : seznamVeci ) {
-            if (neco.getNazev().equals(nazevVeci)) {
-                return true;
-            }
+    public String seznamSousedicichSektoru(){
+        String vychodyText = "Sousedici sektory:";
+        for (Sektor sousediciSektor : sousediciSektory){
+            vychodyText += " " + sousediciSektor.getNazev();
         }
-        return false;
-    }
-    public Vec vyberVec(String nazevVeci) {
-        Vec vybranaVec = null;
-        for ( Vec neco : seznamVeci ) {
-            if (neco.getNazev().equals(nazevVeci)) {
-                vybranaVec=neco;
-            }
-        }
-        if (vybranaVec != null) {
-            if (vybranaVec.jePrenositelna()) {
-                seznamVeci.remove(vybranaVec);
-            }
-            else {
-                vybranaVec=null;
-            }
-        }
-        return vybranaVec;
+        return vychodyText;
     }
 
-    private String seznamVeci() {
+    public String prohledejRegal(String pozadvanyRegal){
+        for (Regal regal : regaly){
+            if (regal.getUrceni().equals(pozadvanyRegal)){
+                return regal.seznamVeci();
+            }
+        }
+        return "Požadovaný regál zde není";
+    }
+
+    private String seznamRegalu(){
         String seznam = "";
-        for ( Vec neco : seznamVeci ) {
-            seznam = seznam + neco.getNazev()+" ";
+        for (Regal regal : regaly){
+            seznam += " " + regal.getUrceni();
         }
         return seznam;
     }
@@ -122,13 +97,25 @@ public class Sektor {
     private String seznamOsob() {
         String seznam = "";
         for ( Osoba neco : osoby ) {
-            seznam = seznam + neco.getRole()+" ";
+            seznam += " " + neco.getRole();
         }
         return seznam;
     }
 
     public List<Osoba> getOsoby() {
         return osoby;
+    }
+
+    public int hashCode(){
+        return nazev.hashCode();
+    }
+
+    public String getNazev(){
+        return nazev;
+    }
+
+    public Set<Regal> getRegaly() {
+        return regaly;
     }
 }
 

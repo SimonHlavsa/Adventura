@@ -11,11 +11,11 @@ public class Hra {
 
     private void vytvorSektor(){
         Sektor vstup = new Sektor("vstup", "Vstup do obchodu");
-        Sektor ovoce = new Sektor("ovoce", "Sektor s ovocem");
-        Sektor pecivo = new Sektor("pecivo", "Sektor s pecivem");
-        Sektor maso =new Sektor("maso", "Sektor s masem");
+        Sektor ovoce = new Sektor("ovoce", "s ovocem");
+        Sektor pecivo = new Sektor("pecivo", "s pecivem");
+        Sektor maso =new Sektor("maso", "s masem");
         Sektor sklad = new Sektor("sklad", "Sklad potravin");
-        Sektor napoje = new Sektor("napoje", "Sektor s nápoji");
+        Sektor napoje = new Sektor("napoje", "s nápoji");
         Sektor pokladny = new Sektor("pokladny", "Pokladny");
 
         vstup.setSousediciSektory(ovoce);
@@ -27,6 +27,7 @@ public class Hra {
         maso.setSousediciSektory(pecivo);
         maso.setSousediciSektory(sklad);
         maso.setSousediciSektory(napoje);
+        sklad.setSousediciSektory(maso);
         napoje.setSousediciSektory(maso);
         napoje.setSousediciSektory(pokladny);
         pokladny.setSousediciSektory(napoje);
@@ -41,6 +42,26 @@ public class Hra {
         ovoce.setOsoby(duchodce);
         maso.setOsoby(zamestnanec);
         sklad.setOsoby(skladnik);
+
+        Regal regalNaOvoce = new Regal("ovoce");
+        Regal regalNaKlobasy = new Regal("klobasy");
+        Regal regalNaSunky = new Regal("sunky");
+        Regal regalNaAlkohol = new Regal("alkohol");
+        Regal regalNaNealko = new Regal("nealko");
+        Regal regalNaPecivo = new Regal("pecivo");
+
+        ovoce.setRegaly(regalNaOvoce);
+        maso.setRegaly(regalNaKlobasy);
+        maso.setRegaly(regalNaSunky);
+        napoje.setRegaly(regalNaAlkohol);
+        napoje.setRegaly(regalNaNealko);
+        pecivo.setRegaly(regalNaPecivo);
+
+        Vec jablko = new Vec("jablko", true);
+        Vec hruska = new Vec("hruska", true);
+
+        regalNaOvoce.setSeznamVeci(jablko);
+        regalNaOvoce.setSeznamVeci(hruska);
 
     }
 
@@ -76,6 +97,9 @@ public class Hra {
             else if (povel.equals("mluv")){
                 textKVypsani = mluv(prikaz);
             }
+            else if (povel.equals("prohledej")){
+                textKVypsani = prohledej(prikaz);
+            }
         }
         else  {
             textKVypsani = "Nevim co tim myslis, tento prikaz neznam?";
@@ -96,8 +120,11 @@ public class Hra {
     private String napoveda(){
         return "Jsi v obchodě a snažíš se koupit kofolu\n" +
                 "\n" +
-                "Muzes zadat tyto prikazy:\n" +
-                platnePrikazy.vratSeznamPrikazu();
+                "Můžeš zadat tyto příkazy:\n" +
+                platnePrikazy.vratSeznamPrikazu() +
+                "\n" +
+                aktualniSektor.dlouhyPopis();
+
     }
 
     private String jdi(Prikaz prikaz){
@@ -111,6 +138,10 @@ public class Hra {
         }
         else {
             aktualniSektor = sousedniSektor;
+            if (aktualniSektor.getNazev().equals("napoje")){
+                return aktualniSektor.dlouhyPopis() +
+                        "\nV regálu, kde by měla být kofola vidíš, že je vyprodaná";
+            }
             return aktualniSektor.dlouhyPopis();
         }
     }
@@ -130,5 +161,15 @@ public class Hra {
         }
         return "Požadovaná osoba nebyla nalezena";
 
+    }
+
+    private String prohledej(Prikaz prikaz){
+        if (!prikaz.maDruheSlovo()){
+            return "Nevím do jakého regálu se podívat";
+        }
+        if (aktualniSektor.getRegaly().isEmpty()){
+            return "V tomto sektoru není žádný regál";
+        }
+        return aktualniSektor.prohledejRegal(prikaz.getDruheSlovo());
     }
 }

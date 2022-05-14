@@ -12,6 +12,7 @@ public class SeznamPrikazu {
         platnePrikazy.add("napoveda");
         platnePrikazy.add("mluv");
         platnePrikazy.add("Okradni");
+        platnePrikazy.add("prohledej");
     }
 
     public boolean jePlatnyPrikaz(String retezec){
