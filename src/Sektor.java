@@ -29,7 +29,6 @@ public class Sektor {
         regaly.add(regal);
     }
 
-
     public void setOsoby(Osoba osoba) {
         osoby.add(osoba);
     }
@@ -48,10 +47,10 @@ public class Sektor {
         dlouhyPopis = "Jsi v sektoru " + popis + ".\n"
                 + seznamSousedicichSektoru();
         if  (!regaly.isEmpty()){
-            dlouhyPopis += "\nRegaly:" + seznamRegalu();
+            dlouhyPopis += "\nRegaly: " + seznamRegalu();
         }
         if (!osoby.isEmpty()){
-            dlouhyPopis += "\nOsoby:" + seznamOsob();
+            dlouhyPopis += "\nOsoby: " + seznamOsob();
         }
         return dlouhyPopis;
     }
@@ -79,6 +78,10 @@ public class Sektor {
     public String prohledejRegal(String pozadvanyRegal){
         for (Regal regal : regaly){
             if (regal.getUrceni().equals(pozadvanyRegal)){
+                if (regal.getUrceni().equals("nealko")){
+                    return regal.seznamVeci() +
+                            "\nVidíš, že v regálu není kofola";
+                }
                 return regal.seznamVeci();
             }
         }
@@ -88,7 +91,7 @@ public class Sektor {
     private String seznamRegalu(){
         String seznam = "";
         for (Regal regal : regaly){
-            seznam += " " + regal.getUrceni();
+            seznam += regal.getUrceni() + " ";
         }
         return seznam;
     }
@@ -97,10 +100,22 @@ public class Sektor {
     private String seznamOsob() {
         String seznam = "";
         for ( Osoba neco : osoby ) {
-            seznam += " " + neco.getRole();
+            seznam += neco.getRole()  + " ";
         }
         return seznam;
     }
+
+    public Vec seberVec(Prikaz prikaz){
+        Vec vybranaVec = null;
+        for (Regal regal : regaly){
+            if (regal.obsahujeVec(prikaz.getDruheSlovo())){
+                vybranaVec = regal.vyberVec(prikaz.getDruheSlovo());
+                break;
+            }
+        }
+        return vybranaVec;
+    }
+
 
     public List<Osoba> getOsoby() {
         return osoby;
@@ -117,6 +132,8 @@ public class Sektor {
     public Set<Regal> getRegaly() {
         return regaly;
     }
+
+
 }
 
 

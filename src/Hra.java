@@ -4,6 +4,8 @@ public class Hra {
     private Sektor aktualniSektor;
     private boolean konecHry = false;
 
+    Batoh batoh;
+
     public Hra(){
         vytvorSektor();
         platnePrikazy = new SeznamPrikazu();
@@ -59,9 +61,32 @@ public class Hra {
 
         Vec jablko = new Vec("jablko", true);
         Vec hruska = new Vec("hruska", true);
+        Vec pivo = new Vec("pivo", true);
+        Vec vodka = new Vec("vodka", true);
+        Vec dzus = new Vec("dzus", true);
+        Vec cocacola = new Vec("cocacola", true);
+        Vec malinovka = new Vec("malinovka", true);
+        Vec chleba = new Vec("chleba", true);
+        Vec houska = new Vec("houska", true);
+        Vec kureci = new Vec("kureci", true);
+        Vec veprova = new Vec("veprova", true);
+        Vec grilovaci = new Vec("grilovaci", true);
+
 
         regalNaOvoce.setSeznamVeci(jablko);
         regalNaOvoce.setSeznamVeci(hruska);
+        regalNaNealko.setSeznamVeci(dzus);
+        regalNaNealko.setSeznamVeci(malinovka);
+        regalNaNealko.setSeznamVeci(cocacola);
+        regalNaAlkohol.setSeznamVeci(pivo);
+        regalNaAlkohol.setSeznamVeci(vodka);
+        regalNaPecivo.setSeznamVeci(houska);
+        regalNaPecivo.setSeznamVeci(chleba);
+        regalNaKlobasy.setSeznamVeci(grilovaci);
+        regalNaSunky.setSeznamVeci(kureci);
+        regalNaSunky.setSeznamVeci(veprova);
+
+        batoh = new Batoh();
 
     }
 
@@ -99,6 +124,15 @@ public class Hra {
             }
             else if (povel.equals("prohledej")){
                 textKVypsani = prohledej(prikaz);
+            }
+            else if (povel.equals("seber")){
+                textKVypsani = seber(prikaz);
+            }
+            else if (povel.equals("inventar")){
+                textKVypsani = inventar(prikaz);
+            }
+            else if (povel.equals("poloz")){
+                textKVypsani = poloz(prikaz);
             }
         }
         else  {
@@ -138,10 +172,6 @@ public class Hra {
         }
         else {
             aktualniSektor = sousedniSektor;
-            if (aktualniSektor.getNazev().equals("napoje")){
-                return aktualniSektor.dlouhyPopis() +
-                        "\nV regálu, kde by měla být kofola vidíš, že je vyprodaná";
-            }
             return aktualniSektor.dlouhyPopis();
         }
     }
@@ -171,5 +201,49 @@ public class Hra {
             return "V tomto sektoru není žádný regál";
         }
         return aktualniSektor.prohledejRegal(prikaz.getDruheSlovo());
+    }
+
+    private String seber(Prikaz prikaz){
+        Vec vecKSebrani;
+        if (!prikaz.maDruheSlovo()){
+            return "Nevím, jaký předmět sebrat.";
+        }
+        if (aktualniSektor.getRegaly().isEmpty()){
+            return "V tomto sektoru není žádný regál se zbožím";
+        }
+        vecKSebrani = aktualniSektor.seberVec(prikaz);
+        if (vecKSebrani == null){
+            return "požadovaná věc se v tomto sektoru nenachází";
+        }
+        else {
+            return batoh.pridatVec(vecKSebrani);
+        }
+    }
+
+    private String inventar(Prikaz prikaz){
+        return batoh.inventar();
+    }
+
+    private String poloz(Prikaz prikaz){
+        if (!prikaz.maDruheSlovo()){
+            return "Nevím, jaký předmět položit.";
+        }
+        if (!prikaz.maTretiSlovo()){
+            return "Nevím, kam předmět položit.";
+        }
+        if (batoh.jePrazdny()){
+            return "Nemáš u sebe žádné předměty";
+        }
+        Vec vec = batoh.odebratVec(prikaz);
+        if (vec == null){
+            return "Požadovaná věc není v batohu";
+        }
+        for (Regal regal : aktualniSektor.getRegaly()){
+            if (regal.getUrceni().equals(prikaz.getTretiSlovo())){
+                regal.vlozVec(vec);
+                return "Předmět byl přidán do regálu.";
+            }
+        }
+        return "Takový regál tu není";
     }
 }

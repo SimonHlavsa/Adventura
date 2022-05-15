@@ -15,9 +15,10 @@ public class Regal {
         seznamVeci.add(vec);
     }
 
-    public void vlozVec(Vec neco) {
-        seznamVeci.add(neco);
+    public void vlozVec(Vec vec) {
+        seznamVeci.add(vec);
     }
+
     public boolean obsahujeVec(String nazevVeci) {
         for ( Vec neco : seznamVeci ) {
             if (neco.getNazev().equals(nazevVeci)) {
@@ -26,6 +27,7 @@ public class Regal {
         }
         return false;
     }
+
     public Vec vyberVec(String nazevVeci) {
         Vec vybranaVec = null;
         for ( Vec neco : seznamVeci ) {
@@ -47,7 +49,7 @@ public class Regal {
     public String seznamVeci() {
         String seznam = "";
         for ( Vec neco : seznamVeci ) {
-            seznam += " " + neco.getNazev() ;
+            seznam += neco.getNazev() + " " ;
         }
         return seznam;
     }

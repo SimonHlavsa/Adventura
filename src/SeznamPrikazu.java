@@ -13,6 +13,9 @@ public class SeznamPrikazu {
         platnePrikazy.add("mluv");
         platnePrikazy.add("Okradni");
         platnePrikazy.add("prohledej");
+        platnePrikazy.add("seber");
+        platnePrikazy.add("inventar");
+        platnePrikazy.add("poloz");
     }
 
     public boolean jePlatnyPrikaz(String retezec){
