@@ -58,6 +58,15 @@ public class Batoh {
         }
     }
 
+    public boolean obsahuje(String nazevVeci){
+        for (Vec vec : batoh){
+            if (vec.getNazev().equals(nazevVeci)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean jePrazdny(){
         return batoh.length == 0;
     }
@@ -69,4 +78,7 @@ public class Batoh {
     public void pridejPenize(int penize) {
         this.penize += penize;
     }
+
+
+
 }

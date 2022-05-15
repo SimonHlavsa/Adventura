@@ -30,17 +30,11 @@ public class Regal {
 
     public Vec vyberVec(String nazevVeci) {
         Vec vybranaVec = null;
-        for ( Vec neco : seznamVeci ) {
-            if (neco.getNazev().equals(nazevVeci)) {
-                vybranaVec=neco;
-            }
-        }
-        if (vybranaVec != null) {
-            if (vybranaVec.jePrenositelna()) {
-                seznamVeci.remove(vybranaVec);
-            }
-            else {
-                vybranaVec=null;
+        for ( Vec vec : seznamVeci ) {
+            if (vec.getNazev().equals(nazevVeci)) {
+                vybranaVec=vec;
+                seznamVeci.remove(vec);
+                return vybranaVec;
             }
         }
         return vybranaVec;

@@ -3,7 +3,6 @@ public class Hra {
     private SeznamPrikazu platnePrikazy;
     private Sektor aktualniSektor;
     private boolean konecHry = false;
-
     Batoh batoh;
 
     public Hra(){
@@ -66,18 +65,18 @@ public class Hra {
         napoje.setRegaly(regalNaNealko);
         pecivo.setRegaly(regalNaPecivo);
 
-        Vec jablko = new Vec("jablko", true);
-        Vec hruska = new Vec("hruska", true);
-        Vec pivo = new Vec("pivo", true);
-        Vec vodka = new Vec("vodka", true);
-        Vec dzus = new Vec("dzus", true);
-        Vec cocacola = new Vec("cocacola", true);
-        Vec malinovka = new Vec("malinovka", true);
-        Vec chleba = new Vec("chleba", true);
-        Vec houska = new Vec("houska", true);
-        Vec kureci = new Vec("kureci", true);
-        Vec veprova = new Vec("veprova", true);
-        Vec grilovaci = new Vec("grilovaci", true);
+        Vec jablko = new Vec("jablko");
+        Vec hruska = new Vec("hruska");
+        Vec pivo = new Vec("pivo");
+        Vec vodka = new Vec("vodka");
+        Vec dzus = new Vec("dzus");
+        Vec cocacola = new Vec("cocacola");
+        Vec malinovka = new Vec("malinovka");
+        Vec chleba = new Vec("chleba");
+        Vec houska = new Vec("houska");
+        Vec kureci = new Vec("kureci");
+        Vec veprova = new Vec("veprova");
+        Vec grilovaci = new Vec("grilovaci");
 
 
         regalNaOvoce.setSeznamVeci(jablko);
@@ -144,6 +143,9 @@ public class Hra {
             else if (povel.equals("okradni")){
                 textKVypsani = okradni(prikaz);
             }
+            else if (povel.equals("uplat")){
+                textKVypsani = uplat(prikaz);
+            }
         }
         else  {
             textKVypsani = "Nevim co tim myslis, tento prikaz neznam?";
@@ -180,10 +182,13 @@ public class Hra {
         if (sousedniSektor == null){
             return "Tam se odsud jit neda!";
         }
-        else {
-            aktualniSektor = sousedniSektor;
-            return aktualniSektor.dlouhyPopis();
+        aktualniSektor = sousedniSektor;
+        if (aktualniSektor.getNazev().equals("pokladny") &&
+                batoh.obsahuje("kofola")){
+            konecHry = true;
+            return vratEpilog();
         }
+        return aktualniSektor.dlouhyPopis();
     }
 
     private String mluv(Prikaz prikaz){
@@ -272,5 +277,18 @@ public class Hra {
         }
         return "V tomto sektoru není žádná osoba, co se dá okrást";
 
+    }
+
+    private String uplat(Prikaz prikaz){
+        if (!aktualniSektor.getNazev().equals("sklad")){
+            return "Zde nemůžeš nikoho uplatit";
+        }
+        if (!(batoh.getPenize() < 600 || batoh.obsahuje("pivo"))){
+            return "Pokud fakt chceš tu kofolu, budeš muset přitvrdit";
+        }
+        Vec kofola = new Vec("kofola");
+        batoh.pridatVec(kofola);
+        batoh.pridejPenize(-600);
+        return "Tady to máš a vypadni";
     }
 }
