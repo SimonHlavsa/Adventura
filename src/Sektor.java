@@ -3,15 +3,34 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/***
+ *
+ * Třída sektor složí pro vytváření sektorů ve kterých se hráč pohybuje
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Sektor {
 
-    private String nazev;
-    private String popis;
-    private Set<Sektor> sousediciSektory;
+    private final String nazev;
+    private final String popis;
 
-    private Set<Regal> regaly;
+    /***
+     * pro ukládání sousedních místností je použit set, aby místnost mohla sousedit s jinou pouze jednou
+     */
+    private final Set<Sektor> sousediciSektory;
 
-    private List<Osoba> osoby;
+    /***
+     * může být jen jeden regál na jeden typ věcí
+     */
+    private final Set<Regal> regaly;
+
+    /***
+     * list osob, nemusíme dopředu dávat přesný počet
+     */
+    private final List<Osoba> osoby;
+
 
     public Sektor(String nazev, String popis){
         this.nazev = nazev;
@@ -21,6 +40,9 @@ public class Sektor {
         osoby = new ArrayList<>();
     }
 
+    /***
+     * vrací true nebo false, pokud se nazvy sektoru rovnají
+     */
     public boolean equals (Object o) {
         if (o instanceof Sektor) {
             Sektor druhy = (Sektor) o;
@@ -31,6 +53,9 @@ public class Sektor {
         }
     }
 
+    /***
+     * dlouhý popis sektoru a co se v něm nachází
+     */
     public String dlouhyPopis() {
         String dlouhyPopis;
         dlouhyPopis = "Jsi v sektoru " + popis + ".\n"
@@ -43,6 +68,10 @@ public class Sektor {
         }
         return dlouhyPopis;
     }
+
+    /***
+     * overuje, zda spolu sektory sousedi
+     */
     public Sektor sousedniSektor(String  jmenoSousedni){
         if (jmenoSousedni == null){
             return null;
@@ -55,6 +84,9 @@ public class Sektor {
         return null;
     }
 
+    /***
+     * vrací výpis sousedních sektoru
+     */
     public String seznamSousedicichSektoru(){
         String vychodyText = "Sousedici sektory:";
         for (Sektor sousediciSektor : sousediciSektory){
@@ -63,6 +95,9 @@ public class Sektor {
         return vychodyText;
     }
 
+    /***
+     * vypisuje věci v regálu
+     */
     public String prohledejRegal(String pozadvanyRegal){
         for (Regal regal : regaly){
             if (regal.getUrceni().equals(pozadvanyRegal)){
@@ -76,6 +111,9 @@ public class Sektor {
         return "Požadovaný regál zde není";
     }
 
+    /***
+     * vypisuje seznam regalu v sektoru
+     */
     private String seznamRegalu(){
         String seznam = "";
         for (Regal regal : regaly){
@@ -84,7 +122,9 @@ public class Sektor {
         return seznam;
     }
 
-
+    /***
+     * vypisuje seznam osob v sektoru
+     */
     private String seznamOsob() {
         String seznam = "";
         for ( Osoba neco : osoby ) {
@@ -93,6 +133,9 @@ public class Sektor {
         return seznam;
     }
 
+    /***
+     * pokud je v sektoru regal, který obsahuje požadovanou věc, tak ji vráti, jinak vrací null
+     */
     public Vec seberVec(Prikaz prikaz){
         Vec vybranaVec = null;
         for (Regal regal : regaly){
@@ -107,11 +150,6 @@ public class Sektor {
 
     public List<Osoba> getOsoby() {
         return osoby;
-    }
-
-
-    public int hashCode(){
-        return nazev.hashCode();
     }
 
     public String getNazev(){
@@ -133,8 +171,6 @@ public class Sektor {
     public void setOsoby(Osoba osoba) {
         osoby.add(osoba);
     }
-
-
 }
 
 

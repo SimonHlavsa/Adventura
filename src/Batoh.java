@@ -1,14 +1,21 @@
-import java.lang.reflect.Array;
-
+/***
+ *
+ * batoh slouží jako inventář, kam si hráč ukládá věci a peníze
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Batoh {
-
     private Vec[] batoh;
-
     private int penize = 0;
     public Batoh(){
         batoh = new Vec[5];
     }
 
+    /***
+     * přidá věc do batohu, pokud není plný
+     */
     public String pridatVec(Vec vecKPridani){
         boolean jePlny = true;
         for (int num = 0; num < batoh.length; num++){
@@ -26,6 +33,9 @@ public class Batoh {
         }
     }
 
+    /***
+     * vrátí věc, kterou chceme z batohu odebrat, pokud je prázdný, vrací null
+     */
     public Vec odebratVec(Prikaz prikaz){
         for (int num = 0; num < batoh.length; num++){
             if (batoh[num] == null){
@@ -40,6 +50,9 @@ public class Batoh {
         return null;
     }
 
+    /***
+     * vypisuje obsah batohu, vpřípadě, že je prázdný, oznámí to
+     */
     public String  inventar(){
         String veci = "Peníze: " + penize + "\n";
         boolean jePrazdny = true;
@@ -58,6 +71,9 @@ public class Batoh {
         }
     }
 
+    /***
+     * kontroluje, zda požadovaná věc je v batohu
+     */
     public boolean obsahuje(String nazevVeci){
         for (Vec vec : batoh){
             if (vec.getNazev().equals(nazevVeci)){

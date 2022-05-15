@@ -1,15 +1,22 @@
+
+/***
+ *
+ * zde se vezme hráčův input a rozdělí na jednotlivá slova
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Prikaz {
 
     private String slovoPrikazu = null;
     private String druheSlovo = null;
     private String tretiSlovo = null;
 
-    public Prikaz(String prvniSlovo, String druheSlovo, String tretiSlovo){
-        slovoPrikazu = prvniSlovo;
-        this.druheSlovo = druheSlovo;
-        this.tretiSlovo = tretiSlovo;
-    }
 
+    /***
+     * zde se dělí a ukládá input
+     */
     public Prikaz(String vstupniRadek){
         String[] slova = vstupniRadek.split("[ \t]");
         if (slova.length > 0) {

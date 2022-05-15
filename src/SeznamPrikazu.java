@@ -1,10 +1,22 @@
 import java.util.Set;
 import java.util.TreeSet;
 
+/***
+ *
+ * zde jsou uloženy všechny příkazy, které může hráč zadat (každý příkaz musí být originální)
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
+
 public class SeznamPrikazu {
 
-    private Set<String> platnePrikazy;
+    private final Set<String> platnePrikazy;
 
+    /***
+     * příkazy
+     */
     public SeznamPrikazu(){
         platnePrikazy = new TreeSet<>();
         platnePrikazy.add("jdi");
@@ -19,10 +31,16 @@ public class SeznamPrikazu {
         platnePrikazy.add("uplat");
     }
 
+    /***
+     * kontoluje, zda je zadaný příkaz platný
+     */
     public boolean jePlatnyPrikaz(String retezec){
         return platnePrikazy.contains(retezec);
     }
 
+    /***
+     * vrací seznam platných příkazů
+     */
     public String vratSeznamPrikazu(){
         String seznam = "";
         for (String slovoPrikazu : platnePrikazy){

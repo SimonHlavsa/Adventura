@@ -1,4 +1,14 @@
+
+/***
+ *
+ * Třída skladník, rozšiřuje třídu osoba
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Skladnik extends Osoba {
+
 
     public Skladnik() {
         super.role = "skladnik";

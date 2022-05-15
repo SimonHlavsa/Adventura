@@ -1,5 +1,12 @@
+/***
+ *
+ * důchodce je zákazník, který má navíc u sebe uloženo, kolik má peněz a dá se okradnout
+ *
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Duchodce extends Osoba {
-
     private int penize;
 
     public Duchodce(){

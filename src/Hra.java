@@ -1,6 +1,14 @@
+
+/***
+ *     v této tříde se inicializují sektory, věci, osoby a regály
+ *     také jsou zde metody k příkazům
+ * @author Šimon Hlavsa
+ * @version 1.0
+ * @created 15.5.2022
+ */
 public class Hra {
 
-    private SeznamPrikazu platnePrikazy;
+    private final SeznamPrikazu platnePrikazy;
     private Sektor aktualniSektor;
     private boolean konecHry = false;
     Batoh batoh;
@@ -10,6 +18,9 @@ public class Hra {
         platnePrikazy = new SeznamPrikazu();
     }
 
+/***
+ * vytváří všechny instance sektorů, věcí, osob a regálů a ukládá je
+ */
     private void vytvorSektor(){
         Sektor vstup = new Sektor("vstup", "Vstup do obchodu");
         Sektor ovoce = new Sektor("ovoce", "s ovocem");
@@ -31,6 +42,7 @@ public class Hra {
         sklad.setSousediciSektory(maso);
         napoje.setSousediciSektory(maso);
         napoje.setSousediciSektory(pokladny);
+        napoje.setSousediciSektory(ovoce);
         pokladny.setSousediciSektory(napoje);
 
         aktualniSektor =vstup;
@@ -79,72 +91,69 @@ public class Hra {
         Vec grilovaci = new Vec("grilovaci");
 
 
-        regalNaOvoce.setSeznamVeci(jablko);
-        regalNaOvoce.setSeznamVeci(hruska);
-        regalNaNealko.setSeznamVeci(dzus);
-        regalNaNealko.setSeznamVeci(malinovka);
-        regalNaNealko.setSeznamVeci(cocacola);
-        regalNaAlkohol.setSeznamVeci(pivo);
-        regalNaAlkohol.setSeznamVeci(vodka);
-        regalNaPecivo.setSeznamVeci(houska);
-        regalNaPecivo.setSeznamVeci(chleba);
-        regalNaKlobasy.setSeznamVeci(grilovaci);
-        regalNaSunky.setSeznamVeci(kureci);
-        regalNaSunky.setSeznamVeci(veprova);
+        regalNaOvoce.vlozVec(jablko);
+        regalNaOvoce.vlozVec(hruska);
+        regalNaNealko.vlozVec(dzus);
+        regalNaNealko.vlozVec(malinovka);
+        regalNaNealko.vlozVec(cocacola);
+        regalNaAlkohol.vlozVec(pivo);
+        regalNaAlkohol.vlozVec(vodka);
+        regalNaPecivo.vlozVec(houska);
+        regalNaPecivo.vlozVec(chleba);
+        regalNaKlobasy.vlozVec(grilovaci);
+        regalNaSunky.vlozVec(kureci);
+        regalNaSunky.vlozVec(veprova);
 
         batoh = new Batoh();
 
     }
 
+    /***
+     * vrací uvítání na začátku hry
+     */
     public String vratUvitani(){
-        return "Vítejte v obchode, vaším úkolem je koupit si kofolu.\n" +
+        return "\nVítejte v obchode, vaším úkolem je koupit si kofolu.\n" +
                 "Pokud nebudete vědět, jak dál, napište 'napoveda'\n" +
                 "\n" +
                 aktualniSektor.dlouhyPopis();
     }
 
+    /***
+     *vrací epilog na konci hry
+     */
     public String vratEpilog(){
-        return "KONEC \n" +
-                "Dík, že jste hru dohráli";
+        return """
+                Gratuluju, podařilo se ti sehnat kofolu\s
+                KONEC\s
+                Dík, že jste hru dohráli""";
     }
 
+
+    /***
+     * vrací, zda-li má hra pokračovat
+     */
     public boolean konecHry() {
         return konecHry;
     }
 
+    /***
+     *zpracévává příkazy a nasledně zvolí metodu, která je v příkazu
+     */
     public String zpracujPrikaz(Prikaz prikaz){
         String textKVypsani = "";
         if (platnePrikazy.jePlatnyPrikaz(prikaz.getSlovoPrikazu())){
             String povel = prikaz.getSlovoPrikazu();
-            if (povel.equals("napoveda")){
-                textKVypsani = napoveda();
-            }
-            else if (povel.equals("jdi")){
-                textKVypsani = jdi(prikaz);
-            }
-            else if (povel.equals("konec")){
-                textKVypsani = konec(prikaz);
-            }
-            else if (povel.equals("mluv")){
-                textKVypsani = mluv(prikaz);
-            }
-            else if (povel.equals("prohledej")){
-                textKVypsani = prohledej(prikaz);
-            }
-            else if (povel.equals("seber")){
-                textKVypsani = seber(prikaz);
-            }
-            else if (povel.equals("inventar")){
-                textKVypsani = inventar(prikaz);
-            }
-            else if (povel.equals("poloz")){
-                textKVypsani = poloz(prikaz);
-            }
-            else if (povel.equals("okradni")){
-                textKVypsani = okradni(prikaz);
-            }
-            else if (povel.equals("uplat")){
-                textKVypsani = uplat(prikaz);
+            switch (povel) {
+                case "napoveda" -> textKVypsani = napoveda();
+                case "jdi" -> textKVypsani = jdi(prikaz);
+                case "konec" -> textKVypsani = konec(prikaz);
+                case "mluv" -> textKVypsani = mluv(prikaz);
+                case "prohledej" -> textKVypsani = prohledej(prikaz);
+                case "seber" -> textKVypsani = seber(prikaz);
+                case "inventar" -> textKVypsani = inventar();
+                case "poloz" -> textKVypsani = poloz(prikaz);
+                case "okradni" -> textKVypsani = okradni(prikaz);
+                case "uplat" -> textKVypsani = uplat();
             }
         }
         else  {
@@ -153,6 +162,9 @@ public class Hra {
         return textKVypsani;
     }
 
+    /***
+     * příkaz ukončí hru
+     */
     private String konec(Prikaz prikaz){
         if (prikaz.maDruheSlovo()){
             return "Ukoncit co? Nechapu, proc jste zadal druhe slovo.";
@@ -163,6 +175,9 @@ public class Hra {
         }
     }
 
+    /***
+     * příkaz vypíše nápovědu
+     */
     private String napoveda(){
         return "Jsi v obchodě a snažíš se koupit kofolu\n" +
                 "\n" +
@@ -173,6 +188,9 @@ public class Hra {
 
     }
 
+    /***
+     * příkaz hráče přesune do jiného sektoru
+     */
     private String jdi(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return  "Kam mám jít? Musíš zadat jméno sektoru";
@@ -191,6 +209,9 @@ public class Hra {
         return aktualniSektor.dlouhyPopis();
     }
 
+    /***
+     * hráč zvolí s kým chce mluvit a daná osoba, pokud je v sektoru, tak vypíše svou hlášku
+     */
     private String mluv(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return  "S kým mám mluvit? Musíš zadat nazev osoby.";
@@ -208,6 +229,9 @@ public class Hra {
 
     }
 
+    /***
+     * příkaz k prohledání regálu
+     */
     private String prohledej(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return "Nevím do jakého regálu se podívat";
@@ -218,6 +242,9 @@ public class Hra {
         return aktualniSektor.prohledejRegal(prikaz.getDruheSlovo());
     }
 
+    /***
+     * příkaz slouží k sebrání věci z regálu
+     */
     private String seber(Prikaz prikaz){
         Vec vecKSebrani;
         if (!prikaz.maDruheSlovo()){
@@ -235,10 +262,16 @@ public class Hra {
         }
     }
 
-    private String inventar(Prikaz prikaz){
+    /***
+     * příkaz vypíše množství peněz a věci v batohu
+     */
+    private String inventar(){
         return batoh.inventar();
     }
 
+    /***
+     * příkaz slouží k vložení věci do regálu
+     */
     private String poloz(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return "Nevím, jaký předmět položit.";
@@ -262,6 +295,9 @@ public class Hra {
         return "Takový regál tu není";
     }
 
+    /***
+     * hráč okradne zvolenou osobu
+     */
     private String okradni(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
            return "Nevím, koho okradnout";
@@ -271,6 +307,9 @@ public class Hra {
             if (osoba.getRole().equals(osobaKOkradnuti)){
                 Duchodce duchodce = (Duchodce) osoba;
                 int castka = duchodce.okradni();
+                if (castka == 0){
+                    return "Důchodce nemá peníze";
+                }
                 batoh.pridejPenize(castka);
                 return "Důchodce byl okraden";
             }
@@ -279,7 +318,10 @@ public class Hra {
 
     }
 
-    private String uplat(Prikaz prikaz){
+    /***
+     * hráč se pokusí uplatit skladníka
+     */
+    private String uplat(){
         if (!aktualniSektor.getNazev().equals("sklad")){
             return "Zde nemůžeš nikoho uplatit";
         }
