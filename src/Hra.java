@@ -37,11 +37,18 @@ public class Hra {
         aktualniSektor =vstup;
 
 
-        Duchodce duchodce = new Duchodce();
+        Duchodce duchodce1 = new Duchodce();
+        Duchodce duchodce2 = new Duchodce();
+        Duchodce duchodce3 = new Duchodce();
+        Duchodce duchodce4 = new Duchodce();
+
         Zamestnanec zamestnanec = new Zamestnanec();
         Skladnik skladnik = new Skladnik();
 
-        ovoce.setOsoby(duchodce);
+        ovoce.setOsoby(duchodce1);
+        maso.setOsoby(duchodce2);
+        napoje.setOsoby(duchodce3);
+        pecivo.setOsoby(duchodce4);
         maso.setOsoby(zamestnanec);
         sklad.setOsoby(skladnik);
 
@@ -133,6 +140,9 @@ public class Hra {
             }
             else if (povel.equals("poloz")){
                 textKVypsani = poloz(prikaz);
+            }
+            else if (povel.equals("okradni")){
+                textKVypsani = okradni(prikaz);
             }
         }
         else  {
@@ -245,5 +255,22 @@ public class Hra {
             }
         }
         return "Takový regál tu není";
+    }
+
+    private String okradni(Prikaz prikaz){
+        if (!prikaz.maDruheSlovo()){
+           return "Nevím, koho okradnout";
+        }
+        String osobaKOkradnuti = prikaz.getDruheSlovo();
+        for (Osoba osoba : aktualniSektor.getOsoby()){
+            if (osoba.getRole().equals(osobaKOkradnuti)){
+                Duchodce duchodce = (Duchodce) osoba;
+                int castka = duchodce.okradni();
+                batoh.pridejPenize(castka);
+                return "Důchodce byl okraden";
+            }
+        }
+        return "V tomto sektoru není žádná osoba, co se dá okrást";
+
     }
 }

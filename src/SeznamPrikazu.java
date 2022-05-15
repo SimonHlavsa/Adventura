@@ -11,7 +11,7 @@ public class SeznamPrikazu {
         platnePrikazy.add("konec");
         platnePrikazy.add("napoveda");
         platnePrikazy.add("mluv");
-        platnePrikazy.add("Okradni");
+        platnePrikazy.add("okradni");
         platnePrikazy.add("prohledej");
         platnePrikazy.add("seber");
         platnePrikazy.add("inventar");

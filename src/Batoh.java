@@ -3,6 +3,8 @@ import java.lang.reflect.Array;
 public class Batoh {
 
     private Vec[] batoh;
+
+    private int penize = 0;
     public Batoh(){
         batoh = new Vec[5];
     }
@@ -39,14 +41,17 @@ public class Batoh {
     }
 
     public String  inventar(){
-        String veci = "";
+        String veci = "Peníze: " + penize + "\n";
+        boolean jePrazdny = true;
         for (Vec vec : batoh){
             if (vec != null){
                 veci += vec.getNazev() + " ";
+                jePrazdny = false;
             }
         }
-        if (veci.equals("")){
-            return "V batohu nejsou žádné předměty.";
+        if (jePrazdny){
+
+            return veci + "V batohu nejsou žádné předměty.";
         }
         else {
             return veci;
@@ -55,5 +60,13 @@ public class Batoh {
 
     public boolean jePrazdny(){
         return batoh.length == 0;
+    }
+
+    public int getPenize() {
+        return penize;
+    }
+
+    public void pridejPenize(int penize) {
+        this.penize += penize;
     }
 }

@@ -21,18 +21,6 @@ public class Sektor {
         osoby = new ArrayList<>();
     }
 
-    public void setSousediciSektory(Sektor sousediciSektor){
-        sousediciSektory.add(sousediciSektor);
-    }
-
-    public void setRegaly(Regal regal){
-        regaly.add(regal);
-    }
-
-    public void setOsoby(Osoba osoba) {
-        osoby.add(osoba);
-    }
-
     public boolean equals (Object o) {
         if (o instanceof Sektor) {
             Sektor druhy = (Sektor) o;
@@ -42,6 +30,7 @@ public class Sektor {
             return false;
         }
     }
+
     public String dlouhyPopis() {
         String dlouhyPopis;
         dlouhyPopis = "Jsi v sektoru " + popis + ".\n"
@@ -54,7 +43,6 @@ public class Sektor {
         }
         return dlouhyPopis;
     }
-
     public Sektor sousedniSektor(String  jmenoSousedni){
         if (jmenoSousedni == null){
             return null;
@@ -121,6 +109,7 @@ public class Sektor {
         return osoby;
     }
 
+
     public int hashCode(){
         return nazev.hashCode();
     }
@@ -131,6 +120,18 @@ public class Sektor {
 
     public Set<Regal> getRegaly() {
         return regaly;
+    }
+
+    public void setSousediciSektory(Sektor sousediciSektor){
+        sousediciSektory.add(sousediciSektor);
+    }
+
+    public void setRegaly(Regal regal){
+        regaly.add(regal);
+    }
+
+    public void setOsoby(Osoba osoba) {
+        osoby.add(osoba);
     }
 
 

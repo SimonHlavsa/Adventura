@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="Přidání regálů">
+    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="Sebrat, položit věc, inventar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Batoh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batoh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Duchodce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Duchodce.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Prikaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Prikaz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Regal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Regal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Osoba.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sektor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sektor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SeznamPrikazu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeznamPrikazu.java" afterDir="false" />
     </list>
@@ -100,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652522653762</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Sebrat, položit věc, inventar">
+      <created>1652625647668</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652625647668</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,15 +127,20 @@
     <MESSAGE value="vytvoření základu podle projektu Adventura" />
     <MESSAGE value="vytvoření osob a věcí" />
     <MESSAGE value="Přidání regálů" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidání regálů" />
+    <MESSAGE value="Sebrat, položit věc, inventar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sebrat, položit věc, inventar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Hra.java</url>
-          <line>240</line>
-          <option name="timeStamp" value="16" />
+          <line>259</line>
+          <properties class="Hra" method="okradni">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -3,6 +3,8 @@ public abstract class Osoba {
     protected String role;
     protected String hlaska;
 
+
+
     public String getRole() {
         return role;
     }
@@ -10,4 +12,5 @@ public abstract class Osoba {
     public String getHlaska(){
         return hlaska;
     }
+
 }
