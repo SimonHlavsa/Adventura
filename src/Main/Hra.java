@@ -1,3 +1,4 @@
+package Main;
 
 /***
  *     v této tříde se inicializují sektory, věci, osoby a regály
@@ -332,5 +333,18 @@ public class Hra {
         batoh.pridatVec(kofola);
         batoh.pridejPenize(-600);
         return "Tady to máš a vypadni";
+    }
+
+    public SeznamPrikazu getPlatnePrikazy() {
+        return platnePrikazy;
+    }
+    
+
+    public Sektor getAktualniSektor() {
+        return aktualniSektor;
+    }
+
+    public boolean isKonecHry() {
+        return konecHry;
     }
 }

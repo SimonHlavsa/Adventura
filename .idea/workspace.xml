@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="hotová hra bez popisků">
+    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="Přidání popisků">
+      <change afterPath="$PROJECT_DIR$/src/Test/BatohTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/HraTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/PrikazTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/SektorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Test/SeznamPrikazuTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Batoh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Batoh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Duchodce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Duchodce.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Osoba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Prikaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Prikaz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Regal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Regal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RizeniHry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RizeniHry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sektor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sektor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SeznamPrikazu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeznamPrikazu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Skladnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Skladnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adventura.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Adventura.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Batoh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Batoh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Duchodce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Duchodce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Hra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Osoba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Prikaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Prikaz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Regal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Regal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RizeniHry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/RizeniHry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sektor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Sektor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeznamPrikazu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/SeznamPrikazu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Skladnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Skladnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Vec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zamestnanec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Zamestnanec.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -44,21 +55,113 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Test" />
+      <recent name="Main" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.BatohTest">
+    <configuration name="BatohTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Adventura" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.BatohTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BatohTest.pridatVec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Adventura" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.BatohTest" />
+      <option name="METHOD_NAME" value="pridatVec" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PrikazTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Adventura" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.PrikazTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SektorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Adventura" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.SektorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeznamPrikazuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Adventura" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.SeznamPrikazuTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.BatohTest" />
+        <item itemvalue="JUnit.BatohTest.pridatVec" />
+        <item itemvalue="JUnit.SeznamPrikazuTest" />
+        <item itemvalue="JUnit.PrikazTest" />
+        <item itemvalue="JUnit.SektorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -127,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652639625137</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Přidání popisků">
+      <created>1652650986010</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652650986010</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +260,19 @@
     <MESSAGE value="Sebrat, položit věc, inventar" />
     <MESSAGE value="příkaz okradni" />
     <MESSAGE value="hotová hra bez popisků" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotová hra bez popisků" />
+    <MESSAGE value="Přidání popisků" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidání popisků" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Adventura$HraTest.ic" NAME="HraTest Coverage Results" MODIFIED="1654186385470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Test.*</FILTER>
+    </SUITE>
   </component>
 </project>

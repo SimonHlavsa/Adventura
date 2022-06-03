@@ -1,3 +1,5 @@
+package Main;
+
 /***
  *
  * abstraktní třída pro ostatní osoby. Každá osoba má svojí roly a hlášku

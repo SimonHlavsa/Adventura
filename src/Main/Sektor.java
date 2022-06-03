@@ -1,3 +1,5 @@
+package Main;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -158,6 +160,14 @@ public class Sektor {
 
     public Set<Regal> getRegaly() {
         return regaly;
+    }
+
+    public String getPopis() {
+        return popis;
+    }
+
+    public Set<Sektor> getSousediciSektory() {
+        return sousediciSektory;
     }
 
     public void setSousediciSektory(Sektor sousediciSektor){

@@ -1,3 +1,5 @@
+package Main;
+
 /***
  *
  * batoh slouží jako inventář, kam si hráč ukládá věci a peníze
@@ -26,7 +28,7 @@ public class Batoh {
             }
         }
         if (jePlny){
-            return "Batoh je plný, nelze do něho nic přidat";
+            return "Main.Batoh je plný, nelze do něho nic přidat";
         }
         else {
             return "Věc byla sebrána a přidána do batohu";

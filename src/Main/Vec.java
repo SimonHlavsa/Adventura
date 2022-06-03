@@ -1,7 +1,8 @@
+package Main;
 
 /***
  *
- * Třída Vec, slouží k vytváření věcí v obchodě
+ * Třída Main.Vec, slouží k vytváření věcí v obchodě
  *
  * @author Šimon Hlavsa
  * @version 1.0

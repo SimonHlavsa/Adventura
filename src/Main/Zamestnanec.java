@@ -1,3 +1,5 @@
+package Main;
+
 public class Zamestnanec extends Osoba{
 
     public Zamestnanec() {

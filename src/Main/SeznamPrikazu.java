@@ -1,3 +1,5 @@
+package Main;
+
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -47,5 +49,8 @@ public class SeznamPrikazu {
             seznam += slovoPrikazu + " ";
         }
         return seznam;
+    }
+    public Set<String> getPlatnePrikazy() {
+        return platnePrikazy;
     }
 }

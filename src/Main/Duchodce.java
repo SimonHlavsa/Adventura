@@ -1,3 +1,5 @@
+package Main;
+
 /***
  *
  * důchodce je zákazník, který má navíc u sebe uloženo, kolik má peněz a dá se okradnout
