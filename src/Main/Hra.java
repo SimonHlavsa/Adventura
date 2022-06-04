@@ -166,7 +166,7 @@ public class Hra {
     /***
      * příkaz ukončí hru
      */
-    private String konec(Prikaz prikaz){
+    public String konec(Prikaz prikaz){
         if (prikaz.maDruheSlovo()){
             return "Ukoncit co? Nechapu, proc jste zadal druhe slovo.";
         }
@@ -179,7 +179,7 @@ public class Hra {
     /***
      * příkaz vypíše nápovědu
      */
-    private String napoveda(){
+    public String napoveda(){
         return "Jsi v obchodě a snažíš se koupit kofolu\n" +
                 "\n" +
                 "Můžeš zadat tyto příkazy:\n" +
@@ -192,7 +192,7 @@ public class Hra {
     /***
      * příkaz hráče přesune do jiného sektoru
      */
-    private String jdi(Prikaz prikaz){
+    public String jdi(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return  "Kam mám jít? Musíš zadat jméno sektoru";
         }
@@ -213,7 +213,7 @@ public class Hra {
     /***
      * hráč zvolí s kým chce mluvit a daná osoba, pokud je v sektoru, tak vypíše svou hlášku
      */
-    private String mluv(Prikaz prikaz){
+    public String mluv(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return  "S kým mám mluvit? Musíš zadat nazev osoby.";
         }
@@ -233,7 +233,7 @@ public class Hra {
     /***
      * příkaz k prohledání regálu
      */
-    private String prohledej(Prikaz prikaz){
+    public String prohledej(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return "Nevím do jakého regálu se podívat";
         }
@@ -246,7 +246,7 @@ public class Hra {
     /***
      * příkaz slouží k sebrání věci z regálu
      */
-    private String seber(Prikaz prikaz){
+    public String seber(Prikaz prikaz){
         Vec vecKSebrani;
         if (!prikaz.maDruheSlovo()){
             return "Nevím, jaký předmět sebrat.";
@@ -266,14 +266,14 @@ public class Hra {
     /***
      * příkaz vypíše množství peněz a věci v batohu
      */
-    private String inventar(){
+    public String inventar(){
         return batoh.inventar();
     }
 
     /***
      * příkaz slouží k vložení věci do regálu
      */
-    private String poloz(Prikaz prikaz){
+    public String poloz(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
             return "Nevím, jaký předmět položit.";
         }
@@ -299,7 +299,7 @@ public class Hra {
     /***
      * hráč okradne zvolenou osobu
      */
-    private String okradni(Prikaz prikaz){
+    public String okradni(Prikaz prikaz){
         if (!prikaz.maDruheSlovo()){
            return "Nevím, koho okradnout";
         }
@@ -322,11 +322,11 @@ public class Hra {
     /***
      * hráč se pokusí uplatit skladníka
      */
-    private String uplat(){
+    public String uplat(){
         if (!aktualniSektor.getNazev().equals("sklad")){
             return "Zde nemůžeš nikoho uplatit";
         }
-        if (!(batoh.getPenize() < 600 || batoh.obsahuje("pivo"))){
+        if (!(batoh.getPenize() >= 600 || batoh.obsahuje("pivo"))){
             return "Pokud fakt chceš tu kofolu, budeš muset přitvrdit";
         }
         Vec kofola = new Vec("kofola");
@@ -347,4 +347,22 @@ public class Hra {
     public boolean isKonecHry() {
         return konecHry;
     }
+
+    public void setKonecHry(boolean konecHry) {
+        this.konecHry = konecHry;
+    }
+
+    public void setAktualniSektor(Sektor aktualniSektor) {
+        this.aktualniSektor = aktualniSektor;
+    }
+
+    public void pridatVecDoBatohu(Vec vec) {
+        batoh.pridatVec(vec);
+    }
+
+    public void pridatPenize(){
+        batoh.pridejPenize(600);
+    }
+
+
 }

@@ -56,11 +56,11 @@ public class Batoh {
      * vypisuje obsah batohu, vpřípadě, že je prázdný, oznámí to
      */
     public String  inventar(){
-        String veci = "Peníze: " + penize + "\n";
+        StringBuilder veci = new StringBuilder("Peníze: " + penize + "\n");
         boolean jePrazdny = true;
         for (Vec vec : batoh){
             if (vec != null){
-                veci += vec.getNazev() + " ";
+                veci.append(vec.getNazev()).append(" ");
                 jePrazdny = false;
             }
         }
@@ -69,7 +69,7 @@ public class Batoh {
             return veci + "V batohu nejsou žádné předměty.";
         }
         else {
-            return veci;
+            return veci.toString();
         }
     }
 
@@ -77,6 +77,8 @@ public class Batoh {
      * kontroluje, zda požadovaná věc je v batohu
      */
     public boolean obsahuje(String nazevVeci){
+        if (jePrazdny())
+            return false;
         for (Vec vec : batoh){
             if (vec.getNazev().equals(nazevVeci)){
                 return true;
@@ -86,7 +88,14 @@ public class Batoh {
     }
 
     public boolean jePrazdny(){
-        return batoh.length == 0;
+        boolean vrat = true;
+        for (Vec vec : batoh){
+            if (vec != null) {
+                vrat = false;
+                break;
+            }
+        }
+        return vrat;
     }
 
     public int getPenize() {
