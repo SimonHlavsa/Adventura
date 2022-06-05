@@ -202,11 +202,19 @@ public class Hra {
             return "Tam se odsud jit neda!";
         }
         aktualniSektor = sousedniSektor;
-        if (aktualniSektor.getNazev().equals("pokladny") &&
-                batoh.obsahuje("kofola")){
+        if (aktualniSektor.getNazev().equals("pokladny") && batoh.obsahuje("kofola")){
             konecHry = true;
             return vratEpilog();
         }
+
+        if (aktualniSektor.getNazev().equals("napoje") && batoh.obsahuje("kofola")){
+            Souboj souboj = new Souboj();
+            if (!souboj.prubehSouboje()){
+                konecHry = true;
+                return "Prohrál jsi";
+            }
+            System.out.println("Podařilo se ti zvítězit, nyní máš volný průchod");
+    }
         return aktualniSektor.dlouhyPopis();
     }
 
@@ -304,6 +312,9 @@ public class Hra {
            return "Nevím, koho okradnout";
         }
         String osobaKOkradnuti = prikaz.getDruheSlovo();
+        if (!osobaKOkradnuti.equals("duchodce")){
+            return "tato osoba se nedá okradnout";
+        }
         for (Osoba osoba : aktualniSektor.getOsoby()){
             if (osoba.getRole().equals(osobaKOkradnuti)){
                 Duchodce duchodce = (Duchodce) osoba;

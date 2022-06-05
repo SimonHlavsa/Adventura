@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="Vytvoření testů">
-      <change afterPath="$PROJECT_DIR$/src/Test/RizeniHryTest.java" afterDir="false" />
+    <list default="true" id="d2f2ee89-1f17-4e90-940f-9c18b902b28c" name="Changes" comment="Dokončení testů">
+      <change afterPath="$PROJECT_DIR$/src/Main/Souboj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Batoh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Batoh.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Skladnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Skladnik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/HraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/HraTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -67,7 +64,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HraTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="Adventura" />
@@ -146,10 +143,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.HraTest" />
         <item itemvalue="JUnit.HraTest.jdi" />
         <item itemvalue="JUnit.HraTest.uplat" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.HraTest.okradni" />
       </list>
     </recent_temporary>
@@ -233,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654259706869</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Dokončení testů">
+      <created>1654355822152</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654355822152</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +262,8 @@
     <MESSAGE value="hotová hra bez popisků" />
     <MESSAGE value="Přidání popisků" />
     <MESSAGE value="Vytvoření testů" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vytvoření testů" />
+    <MESSAGE value="Dokončení testů" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dokončení testů" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
