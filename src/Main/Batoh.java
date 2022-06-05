@@ -28,7 +28,7 @@ public class Batoh {
             }
         }
         if (jePlny){
-            return "Main.Batoh je plný, nelze do něho nic přidat";
+            return "Batoh je plný, nelze do něho nic přidat";
         }
         else {
             return "Věc byla sebrána a přidána do batohu";
@@ -95,6 +95,17 @@ public class Batoh {
         for (Vec vec : batoh){
             if (vec != null) {
                 vrat = false;
+                break;
+            }
+        }
+        return vrat;
+    }
+
+    public boolean jeVBatohuMisto(){
+        boolean vrat = false;
+        for (Vec vec : batoh){
+            if (vec == null) {
+                vrat = true;
                 break;
             }
         }

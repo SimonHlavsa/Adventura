@@ -13,17 +13,8 @@ class HraTest {
     @BeforeEach
     void setUp() {
         hra = new Hra();
-
     }
 
-    @Test
-    void zacatekHry(){
-        assertEquals("\nVítejte v obchode, vaším úkolem je koupit si kofolu.\n" +
-                "Pokud nebudete vědět, jak dál, napište 'napoveda'\n" +
-                "\n" + hra.getAktualniSektor().dlouhyPopis(), hra.vratUvitani());
-        assertFalse(hra.konecHry());
-        assertEquals("vstup", hra.getAktualniSektor().getNazev());
-    }
 
     @Test
     void vratEpilog(){

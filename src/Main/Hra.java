@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.Date;
+
 /***
  *     v této tříde se inicializují sektory, věci, osoby a regály
  *     také jsou zde metody k příkazům
@@ -114,7 +116,37 @@ public class Hra {
      * vrací uvítání na začátku hry
      */
     public String vratUvitani(){
-        return "\nVítejte v obchode, vaším úkolem je koupit si kofolu.\n" +
+        String dnesek = null;
+        Date date = new Date();
+
+        @Deprecated
+        int den = date.getDay();
+        switch (den){
+            case 0:
+                dnesek = Dny.neděle.toString();
+                break;
+            case 1:
+                dnesek = Dny.pondělí.toString();
+                break;
+            case 2:
+                dnesek = Dny.úterý.toString();
+                break;
+            case 3:
+                dnesek = Dny.středa.toString();
+                break;
+            case 4:
+                dnesek = Dny.čtvrtek.toString();
+                break;
+            case 5:
+                dnesek = Dny.pátek.toString();
+                break;
+            case 6:
+                dnesek = Dny.sobota.toString();
+                break;
+        }
+
+
+        return "\nJe " + dnesek + " a ty ses rozhodl si zajít koupit kofolu.\n" +
                 "Pokud nebudete vědět, jak dál, napište 'napoveda'\n" +
                 "\n" +
                 aktualniSektor.dlouhyPopis();
@@ -342,6 +374,10 @@ public class Hra {
      * hráč se pokusí uplatit skladníka
      */
     public String uplat(){
+        if (!batoh.jeVBatohuMisto()){
+            return "máš plný batoh, nejprve odlož nějaké věci";
+        }
+
         if (!aktualniSektor.getNazev().equals("sklad")){
             return "Zde nemůžeš nikoho uplatit";
         }

@@ -26,7 +26,7 @@ class BatohTest {
         batoh.pridatVec(vec);
         batoh.pridatVec(vec);
         batoh.pridatVec(vec);
-        assertEquals("Main.Batoh je plný, nelze do něho nic přidat", batoh.pridatVec(vec));
+        assertEquals("Batoh je plný, nelze do něho nic přidat", batoh.pridatVec(vec));
     }
 
     @Test

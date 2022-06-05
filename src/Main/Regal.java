@@ -14,7 +14,7 @@ import java.util.List;
 public class Regal {
 
     private final String urceni;
-    private List<Vec> seznamVeci;
+    private final List<Vec> seznamVeci;
 
     public Regal(String urceni){
         this.urceni = urceni;
@@ -52,11 +52,11 @@ public class Regal {
      * vrací seznam věcí, co se nachází v regálu
      */
     public String seznamVeci() {
-        String seznam = "";
+        StringBuilder seznam = new StringBuilder();
         for ( Vec neco : seznamVeci ) {
-            seznam += neco.getNazev() + " " ;
+            seznam.append(neco.getNazev()).append(" ");
         }
-        return seznam;
+        return seznam.toString();
     }
 
     /***
