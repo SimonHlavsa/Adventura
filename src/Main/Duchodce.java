@@ -12,15 +12,19 @@ public class Duchodce extends Osoba {
     private int penize;
 
     public Duchodce(){
-        super.role = "duchodce";
-        super.hlaska = "Na tohle mi důchod fakt nestačí";
         penize = 200;
+        super.role = "duchodce";
     }
 
     public int okradni(){
         int penizeKVraceni = penize;
         penize = 0;
         return penizeKVraceni;
+    }
+
+    @Override
+    public String getHlaska() {
+        return "Na tohle mi důchod fakt nestačí";
     }
 
 }

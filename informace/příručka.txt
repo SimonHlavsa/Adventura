@@ -1,0 +1,30 @@
+
+PŘÍRUČKA PRO UŽIVATELE
+-----------------------
+
+
+PŘÍKAZY
+
+napoveda (jedno slovo)							                            	- vypíše, informace o aktuálním sektoru, jaké věci, osoby, východy se zde nachízí
+
+jdi (dvě slova - např. jdi napoje)				                            	- přesune hráče do vedlejšího sektoru
+
+konec (jedno slovo) 							                            	- ukončí hru
+
+mluv (dvě slova - např. mluv duchodce) 			                               	- hráč začne mluvit s další osobou, od které může získat informace
+
+prohledej (dvě slova - např. prohledej nealko)  			                	- hráč prohledá regál a zjistí, co je v něm za předměty
+
+seber (dvě slova - seber jablko)  						                        - hráč sebere předmět, pokud se nacházi ve stejném sektoru
+	
+poloz (tři slova - 2. slovo = co, 3. slovo = kam - např poloz jablko ovoce)  	- hráč položí předmět do regálu.
+
+okradni (dvě slova - např. okradni duchodce)  				                	- hráč okrade osobu
+	
+uplat (jedno slovo)  							                            	- uráč uplatí osobu
+
+
+
+CÍL HRY 
+
+Hráč musí v obchodě sehnat kofolu. Aby toho dosáhl, bude muset využívat různých akcí, jako například vyptávání se, okrádání nebo uplácení zaměstnanců obchodu. Hra skončí ve chvíli, kdy projde hráč s kofolou projde přes pokladny ven.

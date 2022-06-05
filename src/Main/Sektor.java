@@ -90,11 +90,11 @@ public class Sektor {
      * vrací výpis sousedních sektoru
      */
     public String seznamSousedicichSektoru(){
-        String vychodyText = "Sousedici sektory:";
+        StringBuilder vychodyText = new StringBuilder("Sousedici sektory:");
         for (Sektor sousediciSektor : sousediciSektory){
-            vychodyText += " " + sousediciSektor.getNazev();
+            vychodyText.append(" ").append(sousediciSektor.getNazev());
         }
-        return vychodyText;
+        return vychodyText.toString();
     }
 
     /***
@@ -104,10 +104,10 @@ public class Sektor {
         for (Regal regal : regaly){
             if (regal.getUrceni().equals(pozadvanyRegal)){
                 if (regal.getUrceni().equals("nealko")){
-                    return regal.seznamVeci() +
+                    return "Věci v regálu: " + regal.seznamVeci() +
                             "\nVidíš, že v regálu není kofola";
                 }
-                return regal.seznamVeci();
+                return "Věci v regálu: " + regal.seznamVeci();
             }
         }
         return "Požadovaný regál zde není";
@@ -117,22 +117,22 @@ public class Sektor {
      * vypisuje seznam regalu v sektoru
      */
     private String seznamRegalu(){
-        String seznam = "";
+        StringBuilder seznam = new StringBuilder();
         for (Regal regal : regaly){
-            seznam += regal.getUrceni() + " ";
+            seznam.append(regal.getUrceni()).append(" ");
         }
-        return seznam;
+        return seznam.toString();
     }
 
     /***
      * vypisuje seznam osob v sektoru
      */
     private String seznamOsob() {
-        String seznam = "";
+        StringBuilder seznam = new StringBuilder();
         for ( Osoba neco : osoby ) {
-            seznam += neco.getRole()  + " ";
+            seznam.append(neco.getRole()).append(" ");
         }
-        return seznam;
+        return seznam.toString();
     }
 
     /***
@@ -160,14 +160,6 @@ public class Sektor {
 
     public Set<Regal> getRegaly() {
         return regaly;
-    }
-
-    public String getPopis() {
-        return popis;
-    }
-
-    public Set<Sektor> getSousediciSektory() {
-        return sousediciSektory;
     }
 
     public void setSousediciSektory(Sektor sousediciSektor){

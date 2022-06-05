@@ -4,7 +4,6 @@ import Main.Prikaz;
 import Main.Regal;
 import Main.Sektor;
 import Main.Vec;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,11 +24,6 @@ class SektorTest {
         regal.vlozVec(vec);
     }
 
-    @AfterAll
-    static void afterAll() {
-
-    }
-
     @Test
     void dlouhyPopis() {
         assertEquals("Jsi v sektoru popis.\nSousedici sektory: nazevS\nRegaly: regal ", sektor.dlouhyPopis());
@@ -42,7 +36,7 @@ class SektorTest {
 
     @Test
     void prohledejRegal() {
-        assertEquals("vec ", sektor.prohledejRegal("regal"));
+        assertEquals("Věci v regálu: vec ", sektor.prohledejRegal("regal"));
     }
 
 

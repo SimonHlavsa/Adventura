@@ -44,11 +44,11 @@ public class SeznamPrikazu {
      * vrací seznam platných příkazů
      */
     public String vratSeznamPrikazu(){
-        String seznam = "";
+        StringBuilder seznam = new StringBuilder();
         for (String slovoPrikazu : platnePrikazy){
-            seznam += slovoPrikazu + " ";
+            seznam.append(slovoPrikazu).append(" ");
         }
-        return seznam;
+        return seznam.toString();
     }
     public Set<String> getPlatnePrikazy() {
         return platnePrikazy;

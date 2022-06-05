@@ -9,15 +9,12 @@ package Main;
  * @created 15.5.2022
  */
 public abstract class Osoba {
-    protected String role;
-    protected String hlaska;
 
-    public String getRole() {
+    String role;
+    public String getRole(){
         return role;
     }
 
-    public String getHlaska(){
-        return hlaska;
-    }
+    public abstract String getHlaska();
 
 }

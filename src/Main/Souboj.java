@@ -54,7 +54,7 @@ public class Souboj {
 
         do {
             ochrankaAkce = ochrankaAkce();
-        } while (ochrankaAkce.equals("utok") && !maOchrankaEnergii);
+        } while ((ochrankaAkce.equals("utok") && !maOchrankaEnergii) || (ochrankaAkce.equals("cekej") && maOchrankaEnergii));
 
         if (ochrankaAkce.equals(tyAkce)){
             if (ochrankaAkce.equals("utok")){
@@ -134,7 +134,7 @@ public class Souboj {
     /***
      * vypisuje životy
      */
-    public void zivoty(){
+    private void zivoty(){
         System.out.println();
         System.out.println("tvoje životy: " + tvojeZivoty);
         System.out.println("žávoty zaměstnance ochranky: " + zamestnanecOchrankyZivoty);
@@ -145,7 +145,7 @@ public class Souboj {
     /***
      *kontola jestli je někdo na 0 životech, pokud ano, konec souboje
      */
-    public boolean jeKonec(){
+    private boolean jeKonec(){
         if (zamestnanecOchrankyZivoty == 0){
             konecSouboje = true;
             return true;
@@ -167,7 +167,6 @@ public class Souboj {
 
     }
 
-
     /***
      *Pomocí BufferedReaderu získává input od hráče
      */
@@ -182,4 +181,5 @@ public class Souboj {
         }
         return vstupniRadek;
     }
+
 }

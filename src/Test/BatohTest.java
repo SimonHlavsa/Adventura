@@ -3,7 +3,6 @@ package Test;
 import Main.Batoh;
 import Main.Prikaz;
 import Main.Vec;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,15 +13,10 @@ class BatohTest {
     private Batoh batoh;
     private Vec vec;
 
-
     @BeforeEach
     void setUp() {
         batoh = new Batoh();
         vec = new Vec("neco");
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test

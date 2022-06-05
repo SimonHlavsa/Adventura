@@ -1,0 +1,9 @@
+ZADÁNÍ HRY
+-------------
+
+Ve hře se bude nacházet několik sektorů ze supermarketu, mezi kterými bude možno chodit. V každém sektoru budou osoby (zaměstnanci a zákazníci), se kterými bude možné mluvit a okrádat je.
+Dále tam budou regály ve kterých budou věci, které půjdou sebrat a následně i vrátit. Bude zde místnost - sklad, kam nás navedou zaměstnanci a ve které bude skladník,
+který půjde uplatit (buď penězi nebo pivem, které půjde sebrat v sektoru s nápoji. Cílem hry bude sehnat kofolu, kterou půjde získat právě od skladníka.
+Cestou k pokladnám hráč narazí na ochranku (pouze v případě, že hráč někoho okradl a nevyužil možnost s pivem), se kterou se spustí souboj (hráč má vždy 3 možnosti (utok, obrana, cekej)).
+U ochranky se tyto možnosti generují náhodně. Pokud hráč zvítězí, může projít k pokladnám, čímž hra končí a hráč vyhrává. Pokud však souboj prohraje, prohraje celou hru.
+

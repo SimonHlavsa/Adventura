@@ -9,7 +9,7 @@ package Main;
  * @created 15.5.2022
  */
 public class Batoh {
-    private Vec[] batoh;
+    private final Vec[] batoh;
     private int penize = 0;
     public Batoh(){
         batoh = new Vec[5];
@@ -80,6 +80,9 @@ public class Batoh {
         if (jePrazdny())
             return false;
         for (Vec vec : batoh){
+            if (vec == null){
+                continue;
+            }
             if (vec.getNazev().equals(nazevVeci)){
                 return true;
             }
@@ -106,6 +109,14 @@ public class Batoh {
         this.penize += penize;
     }
 
-
-
+    public void setBatoh(String nazevVeci) {
+        for (int num = 0; num < batoh.length; num++){
+            if (batoh[num] == null){
+                continue;
+            }
+            if (batoh[num].getNazev().equals(nazevVeci)){
+                batoh[num] = null;
+            }
+        }
+    }
 }

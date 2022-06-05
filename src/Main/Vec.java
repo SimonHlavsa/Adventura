@@ -15,7 +15,6 @@ public class Vec {
     public Vec(String nazevVeci) {
         this.nazevVeci = nazevVeci;
     }
-
     public String getNazev() {
         return nazevVeci;
     }

@@ -3,7 +3,6 @@ package Test;
 import Main.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -136,11 +135,11 @@ class HraTest {
         Vec predmet = new Vec("predmet");
         hra.pridatVecDoBatohu(predmet);
 
-        prikaz = new Prikaz("poloz neco nekam");
-        assertEquals("Požadovaná věc není v batohu", hra.poloz(prikaz));
-
         prikaz = new Prikaz("jdi ovoce");
         hra.jdi(prikaz);
+
+        prikaz = new Prikaz("poloz neco ovoce");
+        assertEquals("Požadovaná věc není v batohu", hra.poloz(prikaz));
 
         prikaz = new Prikaz("poloz predmet ovoce");
         assertEquals("Předmět byl přidán do regálu.", hra.poloz(prikaz));

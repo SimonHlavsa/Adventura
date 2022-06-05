@@ -10,10 +10,13 @@ package Main;
  */
 public class Skladnik extends Osoba {
 
-
     public Skladnik() {
         super.role = "skladnik";
-        super.hlaska ="Já tuhle práci tak nesnáším, každý pořád jen otravuje. Jestli chceš kofolu, tak tě to bude něco stát. \n"
+    }
+
+    @Override
+    public String getHlaska() {
+        return "Já tuhle práci tak nesnáším, každý pořád jen otravuje. Jestli chceš kofolu, tak tě to bude něco stát. \n"
                 + "Dones skladníkovi nějaký úplatek";
     }
 }

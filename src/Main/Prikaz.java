@@ -50,4 +50,5 @@ public class Prikaz {
         return (tretiSlovo != null);
     }
 
+
 }

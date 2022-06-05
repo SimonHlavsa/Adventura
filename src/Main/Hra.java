@@ -13,6 +13,7 @@ public class Hra {
     private Sektor aktualniSektor;
     private boolean konecHry = false;
     Batoh batoh;
+    private boolean bylNekdoOkraden = false;
 
     public Hra(){
         vytvorSektor();
@@ -142,23 +143,27 @@ public class Hra {
      */
     public String zpracujPrikaz(Prikaz prikaz){
         String textKVypsani = "";
-        if (platnePrikazy.jePlatnyPrikaz(prikaz.getSlovoPrikazu())){
-            String povel = prikaz.getSlovoPrikazu();
-            switch (povel) {
-                case "napoveda" -> textKVypsani = napoveda();
-                case "jdi" -> textKVypsani = jdi(prikaz);
-                case "konec" -> textKVypsani = konec(prikaz);
-                case "mluv" -> textKVypsani = mluv(prikaz);
-                case "prohledej" -> textKVypsani = prohledej(prikaz);
-                case "seber" -> textKVypsani = seber(prikaz);
-                case "inventar" -> textKVypsani = inventar();
-                case "poloz" -> textKVypsani = poloz(prikaz);
-                case "okradni" -> textKVypsani = okradni(prikaz);
-                case "uplat" -> textKVypsani = uplat();
+        try {
+            if (platnePrikazy.jePlatnyPrikaz(prikaz.getSlovoPrikazu())){
+                String povel = prikaz.getSlovoPrikazu();
+                switch (povel) {
+                    case "napoveda" -> textKVypsani = napoveda();
+                    case "jdi" -> textKVypsani = jdi(prikaz);
+                    case "konec" -> textKVypsani = konec(prikaz);
+                    case "mluv" -> textKVypsani = mluv(prikaz);
+                    case "prohledej" -> textKVypsani = prohledej(prikaz);
+                    case "seber" -> textKVypsani = seber(prikaz);
+                    case "inventar" -> textKVypsani = inventar();
+                    case "poloz" -> textKVypsani = poloz(prikaz);
+                    case "okradni" -> textKVypsani = okradni(prikaz);
+                    case "uplat" -> textKVypsani = uplat();
+                }
             }
-        }
-        else  {
-            textKVypsani = "Nevim co tim myslis, tento prikaz neznam?";
+            else  {
+                textKVypsani = "Nevim co tim myslis, tento prikaz neznam?";
+            }
+        } catch (java.lang.NullPointerException exc){
+            System.out.println("Musíte zadat příkaz");
         }
         return textKVypsani;
     }
@@ -207,11 +212,12 @@ public class Hra {
             return vratEpilog();
         }
 
-        if (aktualniSektor.getNazev().equals("napoje") && batoh.obsahuje("kofola")){
+        if (aktualniSektor.getNazev().equals("napoje") && batoh.obsahuje("kofola") && bylNekdoOkraden){
             Souboj souboj = new Souboj();
             if (!souboj.prubehSouboje()){
                 konecHry = true;
-                return "Prohrál jsi";
+                return "PROHRÁL JSI\n" +
+                        "Byl si zadržen ochrankou";
             }
             System.out.println("Podařilo se ti zvítězit, nyní máš volný průchod");
     }
@@ -291,12 +297,13 @@ public class Hra {
         if (batoh.jePrazdny()){
             return "Nemáš u sebe žádné předměty";
         }
-        Vec vec = batoh.odebratVec(prikaz);
-        if (vec == null){
-            return "Požadovaná věc není v batohu";
-        }
+
         for (Regal regal : aktualniSektor.getRegaly()){
             if (regal.getUrceni().equals(prikaz.getTretiSlovo())){
+                Vec vec = batoh.odebratVec(prikaz);
+                if (vec == null){
+                    return "Požadovaná věc není v batohu";
+                }
                 regal.vlozVec(vec);
                 return "Předmět byl přidán do regálu.";
             }
@@ -323,6 +330,7 @@ public class Hra {
                     return "Důchodce nemá peníze";
                 }
                 batoh.pridejPenize(castka);
+                bylNekdoOkraden = true;
                 return "Důchodce byl okraden";
             }
         }
@@ -342,29 +350,18 @@ public class Hra {
         }
         Vec kofola = new Vec("kofola");
         batoh.pridatVec(kofola);
-        batoh.pridejPenize(-600);
+        if (batoh.getPenize() >= 600){
+            batoh.pridejPenize(-600);
+        }
+        else {
+            batoh.setBatoh("pivo");
+        }
+
         return "Tady to máš a vypadni";
     }
 
-    public SeznamPrikazu getPlatnePrikazy() {
-        return platnePrikazy;
-    }
-    
-
     public Sektor getAktualniSektor() {
         return aktualniSektor;
-    }
-
-    public boolean isKonecHry() {
-        return konecHry;
-    }
-
-    public void setKonecHry(boolean konecHry) {
-        this.konecHry = konecHry;
-    }
-
-    public void setAktualniSektor(Sektor aktualniSektor) {
-        this.aktualniSektor = aktualniSektor;
     }
 
     public void pridatVecDoBatohu(Vec vec) {
@@ -374,6 +371,4 @@ public class Hra {
     public void pridatPenize(){
         batoh.pridejPenize(600);
     }
-
-
 }
